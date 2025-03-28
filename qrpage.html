@@ -1,0 +1,75 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="output.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body class="flex justify-center items-center min-h-screen bg-gray-100 p-4">
+    <div id="qrContainer" class="bg-white shadow-lg rounded-lg p-6 w-full max-w-md text-center">
+        <h2 class="text-2xl font-semibold">Generated QR Code</h2>
+        <div id="qrCode" class="flex justify-center mt-4"></div>
+        <p class="mt-4 text-gray-700" id="timestamp"></p>
+        <button onclick="downloadPDF()" class="mt-4 bg-green-600 text-white p-2 rounded-md hover:bg-green-700">
+            Download as PDF
+        </button>
+    </div>
+
+    <script src="./qrpage.js"></script>
+</body>
+</html> -->
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>QR Code Page</title>
+      <!-- <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="output.css"> -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+      <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  </head>
+  <body class="flex justify-center items-center min-h-screen p-4 bg-gradient-to-t from-[#a8edea] to-[#fed6e3]">
+  
+    
+
+      <div id="loadingContainer" class="flex flex-col items-center rounded-4xl shadow-2xl">
+        <img src="./images/qrload.gif" alt="Loading Animation" class="rounded-lg w-64">
+        <p class="mt-2 text-gray-700 text-lg ">Generating QR Code...</p>
+    </div>
+  
+      <!-- QR Code Container (Initially Hidden) -->
+      <div id="qrContainer" class="bg-white shadow-lg rounded-lg p-6 w-full max-w-md text-center hidden">
+          <h2 class="text-2xl font-semibold">Generated QR Code</h2>
+          <div id="qrCode" class="flex justify-center mt-4"></div>
+          <p class="mt-4 text-gray-700" id="timestamp"></p>
+          <button onclick="downloadPDF()" class="mt-4   h-10 w-34   bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-md shadow-md text-lg font-medium hover:opacity-90 transition duration-300">
+              Download as PDF
+          </button>
+      </div>
+  
+      <script>
+          setTimeout(() => {
+              
+              document.getElementById("loadingContainer").style.display = "none";
+              
+              
+              document.getElementById("qrContainer").classList.remove("hidden");
+  
+              
+              
+  
+              document.getElementById("timestamp").innerText = "Generated on: " + new Date().toLocaleString();
+          }, 3000); 
+      </script>
+  <script src="./qrpage.js"></script>
+  </body>
+  </html>

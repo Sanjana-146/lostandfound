@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Data</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex justify-center items-center min-h-screen bg-gray-100">
+
+    <div class="bg-white shadow-lg rounded-lg p-6 max-w-lg w-full">
+        <h2 class="text-2xl font-semibold text-center mb-4">Scanned QR Data</h2>
+        <table class="w-full border border-gray-300">
+            <tbody id="dataTable" class="divide-y divide-gray-300">
+                <!-- Data will be inserted here dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function displayData() {
+            const dataParam = getQueryParam('data');
+            if (!dataParam) {
+                document.getElementById("dataTable").innerHTML = "<tr><td class='p-3 text-center' colspan='2'>No data found</td></tr>";
+                return;
+            }
+
+            try {
+                const jsonData = JSON.parse(decodeURIComponent(dataParam));
+                const table = document.getElementById("dataTable");
+
+                for (const [key, value] of Object.entries(jsonData)) {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <th class="p-3 text-left font-medium bg-gray-200">${key.replace(/([A-Z])/g, ' $1').trim()}</th>
+                        <td class="p-3">${value}</td>
+                    `;
+                    table.appendChild(row);
+                }
+            } catch (error) {
+                console.error("Error parsing JSON:", error);
+                document.getElementById("dataTable").innerHTML = "<tr><td class='p-3 text-center' colspan='2'>Invalid data format</td></tr>";
+            }
+        }
+
+        window.onload = displayData;
+    </script>
+
+</body>
+</html>

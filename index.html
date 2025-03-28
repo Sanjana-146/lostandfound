@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LostandFound</title>
+  <!-- <link rel="stylesheet" href="./src/output.css">
+  <link rel="stylesheet" href="./src/nav.css">
+  <link rel="stylesheet" href="./src/input.css"> -->
+  <link rel="stylesheet" href="./navbar.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Updated Font Awesome CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
+    crossorigin="anonymous"></script>
+  <!-- <link rel="stylesheet" href="explore.css"> -->
+
+
+
+</head>
+<style>
+  .hidden{
+    opacity: 0;
+  }
+   /* Fallback CSS if Tailwind is not loaded */
+   .hover-scale img {
+            transition: transform 0.5s ease-in-out;
+        }
+        .hover-scale:hover img {
+            transform: scale(1.1);
+        }
+
+        .icon-wrapper{
+    display: flex;
+    gap: 1rem;
+    font-size: 25px;
+    color: white;
+    transition: all 0.6s;
+    cursor: pointer;
+}
+.icon-wrapper #icon:hover{
+    color: var(--bgOrange);
+}
+
+.icon:hover {
+    color: var(--bgOrange);
+}
+
+:root {
+    --bgOrange: #5cd0f7; /* Light Blue */
+}
+
+
+
+</style>
+<body style="background-color: #F4F1F9">
+
+  <!--                                THIS THE SIGUP AND SIGIN FROM  -->
+
+  <nav class="z-[9999] fixed top-0 left-0 w-full">
+    <ul class="sidebar">
+      <li onclick="hideSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960"
+            width="26">
+            <path
+              d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" />
+          </svg></a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#aboutus">How Is Work</a></li>
+      <li><a href="#rentout">Register Here</a></li>
+      <li><a href="#explore">About Us</a></li>
+      <!-- <li><a href="form.html" id="login-nav">Login</a></li> Added ID for event listener -->
+      <!-- <li class="hideOnMobile"><a href="#" id="logout-btn" style="display: none;">LogOut</a></li> -->
+    </ul>
+    <ul>
+      <li><a href="#" class="logoname text-2xl font-semibold text-blue-700">ReFound</a></li>
+      <li class="hideOnMobile"><a class="h-12 bg-linear-to-t from-sky-500 to-indigo-500" href="#home">Home</a></li>
+      <li class="hideOnMobile"><a href="#aboutus">How Is Work</a></li>
+      <li class="hideOnMobile"><a href="#rentout">Register Here</a></li>
+      <li class="hideOnMobile"><a href="#explore">About Us</a></li>
+      <li class="hideOnMobile"><a href="register.html" id="login-nav">Login/SignUp</a></li>
+      <!-- User Icon (Hidden by Default) -->
+      <a href="#" id="user-icon" class="hidden relative">
+        <span class="w-10 h-10 bg-blue-500 text-white flex items-center justify-center rounded-full cursor-pointer">👤</span>
+    </a>
+    <div id="user-dropdown" class="hidden absolute right-2 mt-40 w-40 bg-white shadow-lg rounded-lg py-2 z-10">
+      <a href="profile-sec.html" id="my-account" class="block px-4 py-2 text-gray-800 hover:bg-blue-400">My Account</a>
+      <a href="#" id="logout-btn" class="block px-4 py-2 text-gray-800 hover:bg-blue-400">Logout</a>
+  </div>
+      <!-- <li class="hideOnMobile"><a href="#" id="logout-btn" style="display: none;">LogOut</a></li> -->
+      <li class="menu-button" onclick="showSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26"
+            viewBox="0 96 960 960" width="26">
+            <path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z" />
+          </svg></a></li>
+    </ul>
+  </nav>
+
+ 
+  
+   
+     
+                                 <!-- Hero Section -->
+<section class="relative h-[80vh] md:h-screen flex items-center justify-center bg-cover bg-center text-white px-6 text-center md:px-12"
+style="background-image: url('./images/bghome.png');">
+<!-- Overlay Effect -->
+<div class="absolute inset-0 bg-gray-900 opacity-50"></div>
+
+<!-- Hero Content -->
+<div class="relative">
+    <h1 class="text-3xl md:text-5xl font-bold leading-tight">
+        The <span class="text-blue-400">Lost and Found</span> <br> Solution For Education
+    </h1>
+    <p class="mt-4 text-lg md:text-xl">Easily identify, claim, and reunite lost and found items back to students.</p>
+  
+
+     <a href="register.html" class=" mt-20 inline-block px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg shadow-md text-lg font-medium hover:opacity-90 transition duration-300">
+          Get Started →
+      </a> 
+</div>
+</section>
+
+
+
+                                                          <!--      THis the  apge of the how it work     -->
+
+      
+  <div class="bg-gray-100 flex items-center justify-center min-h-screen">
+         <div class="relative w-full flex flex-col items-center justify-center text-black px-4">
+        
+      <!-- Title -->
+      <h1 class="text-lg lg:text-5xl font-bold text-center mt-10 lg:mt-20">
+          How ReFound Works
+      </h1>
+
+      <div class="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0 lg:space-x-10 mt-10 lg:mt-20">
+          
+          <!-- Step 1 -->
+          <div class="flex flex-col items-center transform transition-all duration-500 hover:scale-110 hover-scale">
+              <img src="./images/img-1.jpg" alt="Step 1" class="w-20 h-20 lg:w-40 lg:h-40 rounded-3xl shadow-lg">
+              <p class="mt-4 text-center font-semibold text-sm lg:text-base">
+                  Log onto <a href="register.html" class="text-blue-500 underline">ReFound</a>
+              </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flex flex-col items-center transform transition-all duration-500 hover:scale-110 hover-scale">
+              <img src="./images/img-4.jpg" alt="Step 2" class="w-20 h-20 lg:w-40 lg:h-40 rounded-3xl shadow-lg">
+              <p class="mt-4 text-center font-semibold text-sm lg:text-base">Register Your Product</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flex flex-col items-center transform transition-all duration-500 hover:scale-110 hover-scale">
+              <img src="./images/img-2.jpg" alt="Step 3" class="w-20 h-20 lg:w-40 lg:h-40 rounded-3xl shadow-lg">
+              <p class="mt-4 text-center font-semibold text-sm lg:text-base">Generate QR</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="flex flex-col items-center transform transition-all duration-500 hover:scale-110 hover-scale">
+              <img src="./images/img-3.jpg" alt="Step 4" class="w-20 h-20 lg:w-40 lg:h-40 rounded-3xl shadow-lg">
+              <p class="mt-4 text-center font-semibold text-sm lg:text-base">Receive Your Product</p>
+          </div>
+      </div>
+  </div>
+  </div>
+          
+                                                        
+                                                          
+                                                        
+                                                        
+
+
+
+
+
+
+
+
+
+<div class="container mx-auto px-6 lg:px-20 py-12 flex flex-col-reverse lg:flex-row items-center">
+
+        
+  <!-- Left Section: Text Content -->
+  <div class="lg:w-1/2 text-center lg:text-left space-y-6">
+      <h1 class="text-5xl font-bold text-gray-900">Hello,</h1>
+      <h2 class="text-3xl font-semibold text-gray-800">We Help You To Boost Your Business</h2>
+      <p class="text-gray-500 text-lg">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione sequi nesciunt.</p>
+     
+<a href="register-item.html" class="inline-block px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg shadow-md text-lg font-medium hover:opacity-90 transition duration-300">
+          Get Started →
+      </a> 
+  </div>
+  
+   
+  <!-- <div class="lg:w-1/2 flex justify-center">
+    <video controls autoplay loop class="max-w-full h-[90%] w-[90%] rounded-[60px]">
+      <source src="./images/home-page.mp" >
+      Your browser does not support the video tag.
+    </video>
+  </div> -->
+
+
+  <div class="lg:w-1/2 flex justify-center">
+
+    <img src="./images/programmer-develops-new-software-14253206-11459184.gif" alt="Business Illustration" class="max-w-full h-[90%] w-[90%] rounded-[60px]">
+  
+  </div>
+</div>
+
+
+
+
+
+<div class=" mt-52" id="aboutus">
+
+  <section class="flex items-center justify-center py-12  ">
+
+    <div class="container mx-auto flex items-center justify-between">
+
+      <div class="w-full md:w-1/2 flex justify-start">
+        <img src="./images/about-us.jpg" alt="Cars"
+          class="w-full  max-w-sm md:max-w-md rounded-3xl shadow-[0px_25px_163px_14px_rgba(0,0,0,0.25)] md:h-[400px] lg:h-[500px]">
+      </div>
+      <!-- Content on the right -->
+      <div class="w-full md:w-1/2 px-6 mt-8 md:mt-0 text-left">
+        <h1 class="text-4xl font-bold mb-6 ">About Us</h1>
+        <p text-[rgb(69 80 95)]>
+          Our QR-Based Lost & Found Platform helps you recover lost items easily! Tag your belongings
+           with our QR codes, allowing finders to contact you instantly for a fast and secure return.
+          Simply register your items, attach a QR tag, and let technology handle the rest.
+          c:\Users\HP\Downloads\ No more worrying about lost possessions—stay connected and bring peace of mind with our smart lost & found solution!</p>
+
+        <button id="more-info-btn"
+          class="mt-6 bg-[#5cd0f7] text-rgb(69 80 95) px-5 py-3 rounded-lg hover:bg-[rgb(66,88,188)] hover:text-white">More
+          Info</button>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+
+
+
+
+    <!-- Footer section -->
+    <div class="bg-gray-900 text-white mt-20">
+      <footer class="bg-gray-900 py-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+
+          <!-- Contact Section -->
+          <div class="space-y-4">
+            <p class="font-semibold text-lg">💬 24*7 Student support</p>
+            <p><i class="fa-solid fa-phone" style="color: #09e1c8;"></i> +91 9301163448</p>
+            <p>📧 <a href="ReFound@gmail.com" class="hover:underline">ReFound@gmail.com</a></p>
+          </div>
+
+          <!-- Solutions Section -->
+          <div class="space-y-2">
+            <h3 class="font-semibold  text-lg text-[#5cd0f7]">Solutions</h3>
+            <ul class="space-y-1">
+              <li><a href="#" class="hover:underline">Lost something? </a></li>
+              <li><a href="#" class="hover:underline">Report a Lost Item</a></li>
+
+              <li><a href="#" class="hover:underline">View Lost Items using QR</a></li>
+              <li><a href="#" class="hover:underline">student Reviews</a></li>
+              <li><a href="#" class="hover:underline">Partner with Us</a></li>
+            </ul>
+          </div>
+
+          <!-- Company Section -->
+          <div class="space-y-2">
+            <h3 class="font-semibold  text-lg text-[#5cd0f7]">Community</h3>
+            <ul class="space-y-1">
+              <li>About Us</li>
+              <li>Careers</li>
+              <li>student Stories</li>
+              <li>Contact</li>
+              <li>Legal</li>
+
+            </ul>
+          </div>
+
+          <!-- Resources Section -->
+
+
+          <!-- Social Media Icons -->
+          <div class="icon-wrapper flex justify-center items-center">
+              <i class="fa-brands fa-linkedin icons" id="icon"></i>
+              <i class="fa-brands fa-github icons" id="icon"></i>
+              <i class="fa-brands fa-twitter icons" id="icon"></i>
+              <i class="fa-brands fa-instagram icons" id="icon"></i>
+              <i class="fa-regular fa-envelope icons" id="icon"></i>
+          </div>
+      </footer>
+      <!-- <script src="https://kit.fontawesome.com/58a810656e.js" crossorigin="anonymous"></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+
+
+
+
+
+    <!-- <scrip src="form.js"></scrip -->
+   
+
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

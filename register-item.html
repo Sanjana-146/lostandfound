@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Item Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex justify-center items-center min-h-screen bg-gray-100 p-4">
+    <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-3xl">
+        <h2 class="text-2xl font-semibold text-center mb-4">Lost Item Registration</h2>
+
+        <form id="registrationForm" class="space-y-4">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block font-medium">Year:</label>
+                    <select id="year" class="w-full p-2 border rounded-md" required>
+                        <option value="" selected disabled>Select Year</option>
+                        <option value="1st Year">1st Year</option>
+                        <option value="2nd Year">2nd Year</option>
+                        <option value="3rd Year">3rd Year</option>
+                        <option value="4th Year">4th Year</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-medium">Branch:</label>
+                    <input type="text" id="branch" class="w-full p-2 border rounded-md" required>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block font-medium">Item Name:</label>
+                    <input type="text" id="itemName" class="w-full p-2 border rounded-md" required>
+                </div>
+                <div>
+                    <label class="block font-medium">Item Color:</label>
+                    <input type="text" id="itemColor" class="w-full p-2 border rounded-md" required>
+                </div>
+            </div>
+
+            <div>
+                <label class="block font-medium">Category:</label>
+                <select id="category" class="w-full p-2 border rounded-md" onchange="toggleElectronicFields()">
+                    <option value="" selected disabled>Select Category</option>
+                    <option value="electronic">Electronic</option>
+                    <option value="non-electronic">Non-Electronic</option>
+                </select>
+            </div>
+
+            <div id="electronicFields" class="hidden grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block font-medium">Model Number:</label>
+                    <input type="text" id="modelNumber" class="w-full p-2 border rounded-md">
+                </div>
+                <div>
+                    <label class="block font-medium">Model Name:</label>
+                    <input type="text" id="modelName" class="w-full p-2 border rounded-md">
+                </div>
+            </div>
+
+            <div>
+                <label class="block font-medium">Description:</label>
+                <textarea id="description" class="w-full p-2 border rounded-md h-24" required></textarea>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block font-medium">Mark of Identification:</label>
+                    <input type="text" id="markIdentification" class="w-full p-2 border rounded-md" required>
+                </div>
+                <div>
+                    <label class="block font-medium">Upload Images (Max: 5):</label>
+                    <input type="file" id="imageUpload" class="w-full p-2 border rounded-md" accept="image/*" multiple required>
+                </div>
+            </div>
+
+            <button type="submit" id="qrBtn" onclick=" redirectToQRPage()" class="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">
+                Generate QR Code
+            </button>
+        </form>
+    </div>
+
+    <script src="./register-item.js"></script>
+    <script src="./qrpage.js"></script>
+
+</body>
+</html>
